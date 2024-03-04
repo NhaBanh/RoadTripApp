@@ -13,6 +13,7 @@ import {
   StatusBar,
   StyleSheet,
   Text,
+  TouchableOpacity,
   useColorScheme,
   View,
 } from 'react-native';
@@ -24,6 +25,7 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import {MiniAppModuleFunction} from './src/bridge/miniAppModule';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -61,7 +63,6 @@ function App(): React.JSX.Element {
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
-
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar
@@ -76,10 +77,21 @@ function App(): React.JSX.Element {
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
+          <TouchableOpacity
+            onPress={() => {
+              console.log(
+                'App.tsx: MiniAppModuleFunction',
+                MiniAppModuleFunction,
+              );
+              MiniAppModuleFunction.openApp(
+                'TripViewer',
+                'tripViewer.bundle',
+                {},
+                false,
+              );
+            }}>
+            <Text>open mini app</Text>
+          </TouchableOpacity>
           <Section title="See Your Changes">
             <ReloadInstructions />
           </Section>
