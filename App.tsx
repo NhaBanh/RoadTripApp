@@ -17,7 +17,6 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
-
 import {
   Colors,
   DebugInstructions,
@@ -25,6 +24,7 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+
 import {MiniAppModuleFunction} from './src/bridge/miniAppModule';
 
 type SectionProps = PropsWithChildren<{
@@ -33,6 +33,7 @@ type SectionProps = PropsWithChildren<{
 
 function Section({children, title}: SectionProps): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
+
   return (
     <View style={styles.sectionContainer}>
       <Text
@@ -63,6 +64,7 @@ function App(): React.JSX.Element {
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
+
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar
@@ -79,10 +81,6 @@ function App(): React.JSX.Element {
           }}>
           <TouchableOpacity
             onPress={() => {
-              console.log(
-                'App.tsx: MiniAppModuleFunction',
-                MiniAppModuleFunction,
-              );
               MiniAppModuleFunction.openApp(
                 'TripViewer',
                 'tripViewer.bundle',
