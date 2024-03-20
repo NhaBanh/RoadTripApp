@@ -1,0 +1,3 @@
+[submodule "mini_app/TripViewer"]
+	path = mini_app/TripViewer
+	url = git@github.com-personal:NhaBanh/TripViewer.git
