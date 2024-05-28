@@ -1,7 +1,7 @@
 package com.roadtrip.bridge.miniAppModule
 
 import android.content.Intent
-import android.os.Bundle
+import androidx.core.content.ContextCompat.startActivity
 import com.facebook.react.bridge.Arguments
 import com.facebook.react.bridge.Callback
 import com.facebook.react.bridge.Promise
@@ -31,17 +31,20 @@ class MiniAppModule(private val reactContext: ReactApplicationContext) :
         initProps: ReadableMap?,
         devLoad: Boolean,
     ) {
-        bundleName ?: return
-        val intent = Intent(reactContext, MiniAppActivity::class.java)
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-        val bundle = Bundle()
-        bundle.putString("bundleName", bundleName)
-        bundle.putString("appPath", appPath)
-        bundle.putBoolean("devLoad", devLoad)
-        bundle.putBundle("initProps", Arguments.toBundle(initProps))
-        intent.putExtras(bundle)
+//        bundleName ?: return
+//        val intent = Intent(reactContext, MiniAppActivity::class.java)
+//        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+//        val bundle = Bundle()
+//        bundle.putString("bundleName", bundleName)
+//        bundle.putString("appPath", appPath)
+//        bundle.putBoolean("devLoad", devLoad)
+//        bundle.putBundle("initProps", Arguments.toBundle(initProps))
+//        intent.putExtras(bundle)
+//        reactContext.startActivity(intent)
+//        _reactContextsMap[bundleName] = reactContext
+
+        val intent: Intent = Intent(reactContext, MiniAppActivity::class.java)
         reactContext.startActivity(intent)
-        _reactContextsMap[bundleName] = reactContext
     }
 
     @ReactMethod

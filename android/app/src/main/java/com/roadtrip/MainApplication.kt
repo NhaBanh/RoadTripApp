@@ -12,7 +12,6 @@ import com.facebook.react.defaults.DefaultReactNativeHost
 import com.facebook.react.flipper.ReactNativeFlipper
 import com.facebook.soloader.SoLoader
 import com.roadtrip.bridge.ModulePackage
-import com.roadtrip.bridge.miniAppModule.MiniAppModule
 
 class MainApplication : Application(), ReactApplication {
 

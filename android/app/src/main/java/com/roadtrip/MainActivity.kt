@@ -5,6 +5,8 @@ import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate
 import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint.fabricEnabled
 import com.facebook.react.defaults.DefaultReactActivityDelegate
+import com.roadtrip.mini_app.SingletonReactInstanceManager.getReactInstanceManager
+
 
 class MainActivity : ReactActivity() {
 
@@ -23,5 +25,8 @@ class MainActivity : ReactActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(null)
+
+        val reactInstanceManager = getReactInstanceManager(this)
+        reactInstanceManager!!.createReactContextInBackground()
     }
 }
